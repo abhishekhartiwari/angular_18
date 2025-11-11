@@ -1,0 +1,83 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Structural Directive</h1>
+    <p>*ngIf, *ngFor .....</p>
+</div>
+
+<div>
+    <div class="row">
+        <!-- Column 1 -->
+        <div class="col-md-3 mb-3">
+            <div *ngIf="isColumn1Visible" class="p-3 bg-primary text-white rounded">
+                <h5>Column 1</h5>
+                <p>Content for column 1</p>
+            </div>
+        </div>
+        <!-- Column 2 -->
+        <div class="col-md-3 mb-3">
+            <div *ngIf="isColumn2Visible" class="p-3 bg-success text-white rounded">
+                <h5>Column 2</h5>
+                <p>Content for column 2</p>
+            </div>
+
+        </div>
+        <!-- Column 3 -->
+        <div class="col-md-3 mb-3">
+            <div *ngIf="num1 == num2" class="p-3 bg-warning text-dark rounded">
+                <h5>Column 3</h5>
+                <p>Content for column 3</p>
+            </div>
+
+        </div>
+        <!-- Column 4 -->
+        <div class="col-md-3 mb-3">
+            <div *ngIf="selectedState=='India'" class="p-3 bg-danger text-white rounded">
+                <h5>Column 4</h5>
+                <p>Content for column 4</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <div class="p-3 bg-light text-dark rounded">
+                <button class="btn btn-primary btn-sm me-2" (click)="showColumn1()">Show</button>
+                <button class="btn btn-secondary btn-sm" (click)="hideColumn1()">Hide</button>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="p-3 bg-light text-dark rounded">
+                <button class="btn btn-dark btn-sm me-2" (click)="toggleColumn2()">Toggle</button>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <input type="text" [(ngModel)]="num1" class="form-control mb-2" placeholder="num1">
+            <input type="text" [(ngModel)]="num2" class="form-control mb-2" placeholder="num2">
+        </div>
+        <div class="col-md-3 mb-3">
+            <input type="checkbox" [(ngModel)]="isActive" class="form-check-input me-2">
+            <select [(ngModel)]="selectedState" class="form-select">
+                <option value="">Select</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <ul>
+                <li *ngFor="let city of CityArray">{{ city }}</li>
+            </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div *ngFor="let city of CityArray" class="p-2 bg-info text-white rounded mb-1">
+                {{ city }}
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <select class="form-select">
+                <option  *ngFor="let city of CityArray" >{{city}}</option>
+            </select>
+        </div>
+    </div>
+</div>

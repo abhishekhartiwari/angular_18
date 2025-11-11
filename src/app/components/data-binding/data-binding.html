@@ -1,0 +1,52 @@
+<div class="row" color="primary">
+
+    <div class="col-6">One way data binding from .ts to html</div>
+</div>
+
+<div class="row">
+
+    <div class="col-6">
+        <div class="row-6">
+            <div class="col-6" bg-success>Interpolation:
+                <h4>{{courseName}}</h4>
+                <div>{{inputType}}</div>
+                <input type="text" value="{{courseName}}" placeholder="Enter Text" />
+                <input type="{{inputType}}" />
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-6">
+        <div class="col-6">Property Binding:
+            <div  [class]="myClassName">
+                <input type="text" [value]="courseName" placeholder="Enter Text" />
+                <input [type]="inputType" />
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-6">
+        <div>Data binding: from .html to .ts
+            <input type="button" value="Click Me" (click)="showAlert('Welcome to Angular')" />
+            <input type="button" value="Change Me" (click)="changeCourseName()" />
+        </div>
+    </div>
+    <div class="col-6">
+        <div>Two way Data Binding:
+            <h4>{{courseName}}</h4>
+            <input type="text" [(ngModel)]="courseName" placeholder="Enter Text" />
+            <select [(ngModel)]="stateName">
+                <option value="">Select</option>
+                <option value="Goa">Goa</option>
+                <option value="UP">UP</option>
+                <option value="MP">MP</option>
+            </select>
+        </div>
+        <div>
+            <h4>{{firstName()}}</h4>
+            </div>
+
+    </div>
+</div>
